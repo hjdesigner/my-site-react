@@ -37,6 +37,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "deep-freeze": "^0.0.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "gulp": "^3.9.1",
@@ -65,7 +66,10 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^3.3.3"
   }
 }

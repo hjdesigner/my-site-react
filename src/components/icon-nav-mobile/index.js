@@ -1,9 +1,12 @@
 'use strict'
 import React from 'react'
+import { connect } from 'react-redux'
+import { openNav } from 'reducers/nav-mobile/action-creators'
 import styled from 'styled-components'
 
-const IconNav = () => (
-  <IconNavMobile />
+const IconNav = ({ handleClick }) => (
+  <IconNavMobile
+    onClick={handleClick} />
 )
 
 const IconNavMobile = styled.div`
@@ -28,4 +31,10 @@ const IconNavMobile = styled.div`
   }
 `
 
-export default IconNav
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: () => {
+    dispatch(openNav())
+  }
+})
+
+export default connect(null, mapDispatchToProps)(IconNav)

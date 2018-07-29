@@ -1,13 +1,16 @@
 'use strict'
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { BrowserRouter, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
+import IconNavClose from 'components/icon-nav-close'
 
-const NavMobile = () => (
+const NavMobile = ({ visibility }) => (
   <BrowserRouter>
-    <NavMobileContainer>
+    <NavMobileContainer data-status={visibility.visibilityNav}>
+      <IconNavClose />
       <Ul>
         <Li><Link to='/'>Abount</Link></Li>
         <Li><Link to='/labs'>Labs</Link></Li>
@@ -24,12 +27,17 @@ const NavMobile = () => (
 )
 
 const NavMobileContainer = styled.nav`
-  width: 90%;
+  width: 80%;
   height: calc(100% - 44px);
   position: absolute;
-  top: 44px;
-  left: -90%;
+  top: 0;
+  left: -100%;
   background-color: #1f1f1f;
+  transition: all .25s ease-out;
+  &[data-status='true'] {
+    transition: all .25s ease-in;
+    transform: translateX(320px);
+  }
 `
 const Ul = styled.ul`
   width: 100%;
@@ -69,5 +77,8 @@ const LiIcon = styled.li`
     font-size: 2em;
   }
 `
+const mapStateProps = (state) => ({
+  visibility: state.navMobile
+})
 
-export default NavMobile
+export default connect(mapStateProps)(NavMobile)
