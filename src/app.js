@@ -1,15 +1,28 @@
 'use strict'
 
-import React, { Component } from 'react'
-import ajax from '@fdaciuk/ajax'
-import AppContent from 'components/app-content'
+import React, { PureComponent } from 'react'
+import { injectGlobal } from 'styled-components'
+import Header from 'views/header'
 
-class App extends Component {
+class App extends PureComponent {
   render () {
-    return <AppContent />
+    return (
+      <Header />
+    )
   }
-
 }
 
-export default App
+injectGlobal`
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #232222;
+    font-family: Arial;
+    font-size: 100%;
+  }
+`
 
+export default App
