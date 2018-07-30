@@ -9,7 +9,7 @@ it('should toggle true navMobile', () => {
     visibilityNav: false
   })
   const action = deepfreeze({
-    type: OPEN_NAV,
+    type: OPEN_NAV
   })
   const after = {
     visibilityNav: true
@@ -21,7 +21,7 @@ it('should toggle false navMobile', () => {
     visibilityNav: true
   })
   const action = deepfreeze({
-    type: CLOSE_NAV,
+    type: CLOSE_NAV
   })
   const after = {
     visibilityNav: false

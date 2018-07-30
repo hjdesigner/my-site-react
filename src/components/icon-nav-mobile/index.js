@@ -29,6 +29,9 @@ const IconNavMobile = styled.div`
   &:after {
     top: 16px;
   }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 
 const mapDispatchToProps = (dispatch) => ({

@@ -12,7 +12,7 @@ const NavMobile = ({ visibility }) => (
     <NavMobileContainer data-status={visibility.visibilityNav}>
       <IconNavClose />
       <Ul>
-        <Li><Link to='/'>Abount</Link></Li>
+        <Li><Link to='/'>About</Link></Li>
         <Li><Link to='/labs'>Labs</Link></Li>
         <Li><Link to='/blog'>Blog</Link></Li>
       </Ul>
@@ -27,16 +27,19 @@ const NavMobile = ({ visibility }) => (
 )
 
 const NavMobileContainer = styled.nav`
-  width: 80%;
+  width: 270px;
   height: calc(100% - 44px);
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -330px;
   background-color: #1f1f1f;
   transition: all .25s ease-out;
   &[data-status='true'] {
     transition: all .25s ease-in;
-    transform: translateX(320px);
+    transform: translateX(330px);
+  }
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 `
 const Ul = styled.ul`
