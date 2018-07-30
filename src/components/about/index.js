@@ -17,10 +17,6 @@ const About = () => (
 const AboutContainer = styled.section`
   width: 100%;
   display: inline-block;
-  margin-bottom: 20px;
-  @media screen and (min-width: 1000px){
-    margin-bottom: 40px;
-  }
 `
 const Image = styled.figure`
   width: 100%;
