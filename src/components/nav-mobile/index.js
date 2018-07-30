@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { BrowserRouter, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
+import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 import IconNavClose from 'components/icon-nav-close'
 
 const NavMobile = ({ visibility }) => (
@@ -12,9 +13,9 @@ const NavMobile = ({ visibility }) => (
     <NavMobileContainer data-status={visibility.visibilityNav}>
       <IconNavClose />
       <Ul>
-        <Li><Link to='/'>About</Link></Li>
-        <Li><Link to='/labs'>Labs</Link></Li>
-        <Li><Link to='/blog'>Blog</Link></Li>
+        <Li><Link to='/'><FontAwesomeIcon icon={faUserAstronaut} />About</Link></Li>
+        <Li><Link to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</Link></Li>
+        <Li><Link to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</Link></Li>
       </Ul>
       <UlIcons>
         <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
@@ -69,6 +70,9 @@ const Li = styled.li`
     text-decoration: none;
     text-transform: uppercase;
     font-size: .9em;
+    svg {
+      margin-right: 10px;
+    }
   }
 `
 const LiIcon = styled.li`

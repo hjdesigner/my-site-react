@@ -6,23 +6,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 
 const NavShare = () => (
-	<BrowserRouter>
-		<Shares>
-			<UlIcons>
-				<LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
-				<LiIcon><Link to='#'><FontAwesomeIcon icon={faTwitterSquare} /></Link></LiIcon>
-				<LiIcon><Link to='#'><FontAwesomeIcon icon={faLinkedin} /></Link></LiIcon>
-				<LiIcon><Link to='#'><FontAwesomeIcon icon={faCodepen} /></Link></LiIcon>
-			</UlIcons>
-		</Shares>
-	</BrowserRouter>
+  <BrowserRouter>
+    <Shares>
+      <UlIcons>
+        <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
+        <LiIcon><Link to='#'><FontAwesomeIcon icon={faTwitterSquare} /></Link></LiIcon>
+        <LiIcon><Link to='#'><FontAwesomeIcon icon={faLinkedin} /></Link></LiIcon>
+        <LiIcon><Link to='#'><FontAwesomeIcon icon={faCodepen} /></Link></LiIcon>
+      </UlIcons>
+    </Shares>
+  </BrowserRouter>
 )
 
 const Shares = styled.nav`
-	display: none;
-	@media screen and (min-width: 768px) {
-		display: inline-block;
-	}
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+  }
 `
 const UlIcons = styled.ul`
   width: 100%;

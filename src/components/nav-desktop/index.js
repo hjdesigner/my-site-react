@@ -2,14 +2,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BrowserRouter, Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 
 const NavDesktop = () => (
   <BrowserRouter>
     <Nav>
       <Ul>
-        <Li><Link to='/'>About</Link></Li>
-        <Li><Link to='/labs'>Labs</Link></Li>
-        <Li><Link to='/blog'>Blog</Link></Li>
+        <Li><Link to='/'><FontAwesomeIcon icon={faUserAstronaut} />About</Link></Li>
+        <Li><Link to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</Link></Li>
+        <Li><Link to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</Link></Li>
       </Ul>
     </Nav>
   </BrowserRouter>
@@ -40,12 +42,19 @@ const Li = styled.li`
   }
   a {
     width: 100%;
-    display: inline-block;
+    display: flex;
     color: #FFFFFF;
     font-weight: 400;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.1em;
     transition: all .25s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    svg {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
     @media screen and (min-width: 1000px) {
       &:hover {
         color: #43b2ea
