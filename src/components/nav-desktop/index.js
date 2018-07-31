@@ -1,20 +1,18 @@
 'use strict'
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 
 const NavDesktop = () => (
-  <BrowserRouter>
-    <Nav>
-      <Ul>
-        <Li><NavLink to='/' exact ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
-        <Li><NavLink to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
-        <Li><NavLink to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
-      </Ul>
-    </Nav>
-  </BrowserRouter>
+  <Nav>
+    <Ul>
+      <Li><NavLink to='/' exact ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
+      <Li><NavLink to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
+      <Li><NavLink to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
+    </Ul>
+  </Nav>
 )
 
 const Nav = styled.nav`

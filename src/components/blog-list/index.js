@@ -1,20 +1,21 @@
 'use strict'
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
-const BlogList = () => (
+const BlogList = ({ list }) => (
   <BlogListContainer>
     <Ul>
-      {Array.from({ length: 10 }).map((item, index) => (
-        <Li key={index}>
-          <Link href='#' target='_blank'>
+      {list.map((item) => (
+        <Li key={item.id}>
+          <Link href={item.link} target='_blank'>
             <Title>
-              Nem React, nem VueJs. Saúde deve ser uma prioridade
+              {item.title}
             </Title>
             <Tags>
-              <SpanTag>CSS</SpanTag>
-              <SpanTag>Redux</SpanTag>
-              <SpanTag>React</SpanTag>
+              {item.tags.map((tags) => (
+                <SpanTag key={tags.id}>{tags.title}</SpanTag>
+              ))}
             </Tags>
           </Link>
         </Li>
@@ -46,6 +47,7 @@ const Li = styled.li`
   }
   @media screen and (min-width: 1024px) {
     width: 32%;
+    padding: 20px;
   }
 `
 const Link = styled.a`
@@ -56,17 +58,25 @@ const Title = styled.h2`
   color: #FFF;
   font-size: 1em;
   font-weight: 600;
+  @media screen and (min-width: 1024px) {
+    font-size: 1.2em;
+    margin: 0 0 20px 0;
+  }
 `
 const Tags = styled.div`
   display: flex;
 `
 const SpanTag = styled.span`
   padding: 5px 10px;
-  border: 1px solid #2da0c3;
-  color: #2da0c3;
+  border: 1px solid #d6ba32;
+  color: #d6ba32;
   border-radius: 3px;
   margin-right: 5px;
   font-size: .8em;
 `
 
-export default BlogList
+const mapStateProps = (state) => ({
+  list: state.blogList
+})
+
+export default connect(mapStateProps)(BlogList)

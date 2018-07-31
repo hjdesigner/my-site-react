@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react'
 import { injectGlobal } from 'styled-components'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from 'views/header'
 import Footer from 'views/footer'
 import Home from 'views/home'
@@ -11,7 +11,7 @@ import Blog from 'views/Blog'
 class App extends PureComponent {
   render () {
     return (
-      <BrowserRouter>
+      <Router>
         <div>
           <Header />
           <Switch>
@@ -20,7 +20,7 @@ class App extends PureComponent {
           </Switch>
           <Footer />
         </div>
-      </BrowserRouter>
+      </Router>
     )
   }
 }
