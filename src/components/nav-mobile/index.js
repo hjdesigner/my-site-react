@@ -2,34 +2,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 import IconNavClose from 'components/icon-nav-close'
+import { closeNav } from 'reducers/nav-mobile/action-creators'
 
-const NavMobile = ({ visibility }) => (
-  <BrowserRouter>
-    <NavMobileContainer data-status={visibility.visibilityNav}>
-      <IconNavClose />
-      <Ul>
-        <Li><Link to='/'><FontAwesomeIcon icon={faUserAstronaut} />About</Link></Li>
-        <Li><Link to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</Link></Li>
-        <Li><Link to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</Link></Li>
-      </Ul>
-      <UlIcons>
-        <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
-        <LiIcon><Link to='#'><FontAwesomeIcon icon={faTwitterSquare} /></Link></LiIcon>
-        <LiIcon><Link to='#'><FontAwesomeIcon icon={faLinkedin} /></Link></LiIcon>
-        <LiIcon><Link to='#'><FontAwesomeIcon icon={faCodepen} /></Link></LiIcon>
-      </UlIcons>
-    </NavMobileContainer>
-  </BrowserRouter>
+const NavMobile = ({ visibility, handleClick }) => (
+  <NavMobileContainer data-status={visibility.visibilityNav}>
+    <IconNavClose />
+    <Ul>
+      <Li><NavLink to='/' exact onClick={handleClick} ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
+      <Li><NavLink to='/labs' onClick={handleClick} ><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
+      <Li><NavLink to='/blog' onClick={handleClick} ><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
+    </Ul>
+    <UlIcons>
+      <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
+      <LiIcon><Link to='#'><FontAwesomeIcon icon={faTwitterSquare} /></Link></LiIcon>
+      <LiIcon><Link to='#'><FontAwesomeIcon icon={faLinkedin} /></Link></LiIcon>
+      <LiIcon><Link to='#'><FontAwesomeIcon icon={faCodepen} /></Link></LiIcon>
+    </UlIcons>
+  </NavMobileContainer>
 )
 
 const NavMobileContainer = styled.nav`
   width: 270px;
-  height: calc(100% - 44px);
+  height: 100%;
   position: absolute;
   top: 0;
   left: -330px;
@@ -70,6 +69,9 @@ const Li = styled.li`
     text-decoration: none;
     text-transform: uppercase;
     font-size: .9em;
+    &.active {
+      color: #43b2ea
+    }
     svg {
       margin-right: 10px;
     }
@@ -88,4 +90,10 @@ const mapStateProps = (state) => ({
   visibility: state.navMobile
 })
 
-export default connect(mapStateProps)(NavMobile)
+const mapDispatchToProps = (dispatch) => ({
+  handleClick: () => {
+    dispatch(closeNav())
+  }
+})
+
+export default connect(mapStateProps, mapDispatchToProps)(NavMobile)
