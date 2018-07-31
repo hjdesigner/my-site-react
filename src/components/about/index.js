@@ -14,7 +14,7 @@ const About = () => (
   </AboutContainer>
 )
 
-const AboutContainer = styled.section`
+const AboutContainer = styled.article`
   width: 100%;
   display: inline-block;
 `

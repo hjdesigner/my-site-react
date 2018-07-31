@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from 'views/header'
 import Footer from 'views/footer'
 import Home from 'views/home'
+import Blog from 'views/Blog'
 
 class App extends PureComponent {
   render () {
@@ -15,6 +16,7 @@ class App extends PureComponent {
           <Header />
           <Switch>
             <Route path='/' exact component={Home} />
+            <Route path='/blog' component={Blog} />
           </Switch>
           <Footer />
         </div>

@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { BrowserRouter, NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,9 +9,9 @@ const NavDesktop = () => (
   <BrowserRouter>
     <Nav>
       <Ul>
-        <Li><Link to='/'><FontAwesomeIcon icon={faUserAstronaut} />About</Link></Li>
-        <Li><Link to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</Link></Li>
-        <Li><Link to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</Link></Li>
+        <Li><NavLink to='/' exact ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
+        <Li><NavLink to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
+        <Li><NavLink to='/blog'><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
       </Ul>
     </Nav>
   </BrowserRouter>
@@ -54,6 +54,9 @@ const Li = styled.li`
     svg {
       font-size: 1.5em;
       margin-bottom: 5px;
+    }
+    &.active {
+      color: #43b2ea;
     }
     @media screen and (min-width: 1000px) {
       &:hover {
