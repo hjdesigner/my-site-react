@@ -7,6 +7,7 @@ import Header from 'views/header'
 import Footer from 'views/footer'
 import Home from 'views/home'
 import Blog from 'views/Blog'
+import Lab from 'views/Lab'
 
 class App extends PureComponent {
   render () {
@@ -17,6 +18,7 @@ class App extends PureComponent {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/blog' component={Blog} />
+            <Route path='/labs' component={Lab} />
           </Switch>
           <Footer />
         </div>
