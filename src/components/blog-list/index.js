@@ -48,6 +48,10 @@ const Li = styled.li`
   @media screen and (min-width: 1024px) {
     width: 32%;
     padding: 20px;
+    transition: all .25s ease-in-out;
+    &:hover {
+      background-color: #000;
+    }
   }
 `
 const Link = styled.a`
