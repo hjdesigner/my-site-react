@@ -3,19 +3,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { NavLink, Link } from 'react-router-dom'
+import { toggleNav } from 'reducers/nav-mobile/action-creators'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
-import IconNavClose from 'components/icon-nav-close'
-import { closeNav } from 'reducers/nav-mobile/action-creators'
 
 const NavMobile = ({ visibility, handleClick }) => (
   <NavMobileContainer data-status={visibility.visibilityNav}>
-    <IconNavClose />
     <Ul>
-      <Li><NavLink to='/' exact onClick={handleClick} ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
-      <Li><NavLink to='/labs' onClick={handleClick} ><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
-      <Li><NavLink to='/blog' onClick={handleClick} ><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
+      <Li><NavLink to='/' exact onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
+      <Li><NavLink to='/labs' onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
+      <Li><NavLink to='/blog' onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
     </Ul>
     <UlIcons>
       <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
@@ -28,9 +26,9 @@ const NavMobile = ({ visibility, handleClick }) => (
 
 const NavMobileContainer = styled.nav`
   width: 270px;
-  height: 100%;
+  height: calc(100% - 43px);
   position: absolute;
-  top: 0;
+  top: 43px;
   left: -330px;
   background-color: #1f1f1f;
   transition: all .25s ease-out;
@@ -91,8 +89,8 @@ const mapStateProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleClick: () => {
-    dispatch(closeNav())
+  handleClick: (status) => () => {
+    dispatch(toggleNav(!status.visibilityNav))
   }
 })
 

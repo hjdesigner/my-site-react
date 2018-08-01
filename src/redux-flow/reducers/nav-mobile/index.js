@@ -1,5 +1,5 @@
 'use strict'
-import { OPEN_NAV, CLOSE_NAV } from './actions'
+import { TOGGLE_NAV } from './actions'
 import createReducer from '../create-reducer'
 
 const initialState = {
@@ -7,13 +7,9 @@ const initialState = {
 }
 
 const navMobile = createReducer(initialState, {
-  [OPEN_NAV]: (state) => ({
+  [TOGGLE_NAV]: (state, action) => ({
     ...state,
-    visibilityNav: true
-  }),
-  [CLOSE_NAV]: (state) => ({
-    ...state,
-    visibilityNav: false
+    visibilityNav: action.payload.status
   })
 })
 

@@ -1,12 +1,13 @@
 'use strict'
 import React from 'react'
 import { connect } from 'react-redux'
-import { openNav } from 'reducers/nav-mobile/action-creators'
+import { toggleNav } from 'reducers/nav-mobile/action-creators'
 import styled from 'styled-components'
 
-const IconNav = ({ handleClick }) => (
+const IconNav = ({ handleClick, status }) => (
   <IconNavMobile
-    onClick={handleClick} />
+    data-js={status.visibilityNav}
+    onClick={handleClick(status)} />
 )
 
 const IconNavMobile = styled.div`
@@ -21,6 +22,7 @@ const IconNavMobile = styled.div`
     position: absolute;
     left: 0;
     background-color: #dddddd;
+    transition: all .25s ease-in-out;
   }
   &:before {
     top: 0;
@@ -29,15 +31,30 @@ const IconNavMobile = styled.div`
   &:after {
     top: 16px;
   }
+  &[data-js="true"] {
+    &:before {
+      top: 8px;
+      transform: rotate(39deg);
+      box-shadow: 0 8px 0 transparent;
+    }
+    &:after {
+      top: 8px;
+      transform: rotate(-39deg);
+    }
+  }
   @media screen and (min-width: 768px) {
     display: none;
   }
 `
 
+const mapStatePros = (state) => ({
+  status: state.navMobile
+})
+
 const mapDispatchToProps = (dispatch) => ({
-  handleClick: () => {
-    dispatch(openNav())
+  handleClick: (status) => () => {
+    dispatch(toggleNav(!status.visibilityNav))
   }
 })
 
-export default connect(null, mapDispatchToProps)(IconNav)
+export default connect(mapStatePros, mapDispatchToProps)(IconNav)

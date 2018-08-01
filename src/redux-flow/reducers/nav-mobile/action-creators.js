@@ -1,9 +1,7 @@
 'use strict'
-import { CLOSE_NAV, OPEN_NAV } from './actions'
+import { TOGGLE_NAV } from './actions'
 
-export const closeNav = () => ({
-  type: CLOSE_NAV
-})
-export const openNav = () => ({
-  type: OPEN_NAV
+export const toggleNav = (status) => ({
+  type: TOGGLE_NAV,
+  payload: { status }
 })
