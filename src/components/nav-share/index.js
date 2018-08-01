@@ -8,10 +8,10 @@ import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/f
 const NavShare = () => (
   <Shares>
     <UlIcons>
-      <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
-      <LiIcon><Link to='#'><FontAwesomeIcon icon={faTwitterSquare} /></Link></LiIcon>
-      <LiIcon><Link to='#'><FontAwesomeIcon icon={faLinkedin} /></Link></LiIcon>
-      <LiIcon><Link to='#'><FontAwesomeIcon icon={faCodepen} /></Link></LiIcon>
+      <LiIcon><a href='https://www.github.com/hjdesigner' target="_blank"><FontAwesomeIcon icon={faGithub} /></a></LiIcon>
+      <LiIcon><a href='https://www.twitter.com/coisadedev' target="_blank"><FontAwesomeIcon icon={faTwitterSquare} /></a></LiIcon>
+      <LiIcon><a href='https://br.linkedin.com/in/coisadedev' target="_blank"><FontAwesomeIcon icon={faLinkedin} /></a></LiIcon>
+      <LiIcon><a href='https://codepen.io/hjdesigner/' target="_blank"><FontAwesomeIcon icon={faCodepen} /></a></LiIcon>
     </UlIcons>
   </Shares>
 )
