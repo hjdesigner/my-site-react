@@ -3,11 +3,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-const BlogList = ({ list, status }) => (
+const BlogList = ({ list }) => (
   <BlogListContainer>
     <Ul>
       {list.map((item) => (
-        <Li key={item.id} data-js={status.visibilityTheme}>
+        <Li key={item.id}>
           <Link href={item.link} target='_blank'>
             <Title>
               {item.title}
@@ -87,8 +87,7 @@ const SpanTag = styled.span`
 `
 
 const mapStateProps = (state) => ({
-  list: state.blogList,
-  status: state.theme
+  list: state.blogList
 })
 
 export default connect(mapStateProps)(BlogList)

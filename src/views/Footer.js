@@ -1,17 +1,14 @@
 'use strict'
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import Light from 'components/theme'
 
-const Footer = ({ status }) => (
-  <FooterContainer data-js={status.visibilityTheme}>
+const Footer = () => (
+  <FooterContainer>
     <Paragraph>
       Made with React + Redux and with lots of <FontAwesomeIcon icon={faHeart} />
     </Paragraph>
-    <Light />
   </FooterContainer>
 )
 
@@ -38,8 +35,5 @@ const Paragraph = styled.p`
     margin-left: 5px;
   }
 `
-const mapStateProps = (state) => ({
-  status: state.theme
-})
 
-export default connect(mapStateProps)(Footer)
+export default Footer

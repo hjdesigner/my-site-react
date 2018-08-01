@@ -1,13 +1,12 @@
 'use strict'
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 
-const NavShare = ({ status }) => (
-  <Shares data-js={status.visibilityTheme}>
+const NavShare = () => (
+  <Shares>
     <UlIcons>
       <LiIcon><Link to='#'><FontAwesomeIcon icon={faGithub} /></Link></LiIcon>
       <LiIcon><Link to='#'><FontAwesomeIcon icon={faTwitterSquare} /></Link></LiIcon>
@@ -44,9 +43,4 @@ const LiIcon = styled.li`
     font-size: 2em;
   }
 `
-
-const mapStateProps = (state) => ({
-  status: state.theme
-})
-
-export default connect(mapStateProps)(NavShare)
+export default NavShare

@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 
-const NavMobile = ({ visibility, handleClick, status }) => (
-  <NavMobileContainer data-status={visibility.visibilityNav} data-js={status.visibilityTheme}>
-    <Ul data-js={status.visibilityTheme}>
+const NavMobile = ({ visibility, handleClick }) => (
+  <NavMobileContainer data-status={visibility.visibilityNav}>
+    <Ul>
       <Li><NavLink to='/' exact onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
       <Li><NavLink to='/labs' onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
       <Li><NavLink to='/blog' onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
@@ -97,8 +97,7 @@ const LiIcon = styled.li`
   }
 `
 const mapStateProps = (state) => ({
-  visibility: state.navMobile,
-  status: state.theme
+  visibility: state.navMobile
 })
 
 const mapDispatchToProps = (dispatch) => ({

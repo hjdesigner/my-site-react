@@ -1,17 +1,16 @@
 'use strict'
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 import ImageHenrique from './henrique-melanda.png'
 
-const About = ({ status }) => (
+const About = () => (
   <AboutContainer>
     <Image>
       <ImageSrc src={ImageHenrique} />
     </Image>
-    <Title data-js={status.visibilityTheme}>Henrique Melanda</Title>
-    <Small data-js={status.visibilityTheme}>Front-End Developer</Small>
-    <Paragraph data-js={status.visibilityTheme}>Hello, i'm Henrique. Nice to meet you! <br />I am a Brazilian developer passionate about writing code for the web.<br />I always try to be in tune with what is happening in the front-end world and always willing to contribute to Open Source projects.</Paragraph>
+    <Title>Henrique Melanda</Title>
+    <Small>Front-End Developer</Small>
+    <Paragraph>Hello, i'm Henrique. Nice to meet you! <br />I am a Brazilian developer passionate about writing code for the web.<br />I always try to be in tune with what is happening in the front-end world and always willing to contribute to Open Source projects.</Paragraph>
   </AboutContainer>
 )
 
@@ -84,9 +83,4 @@ const Paragraph = styled.p`
     margin: 0 auto;
   }
 `
-
-const mapStateProps = (state) => ({
-  status: state.theme
-})
-
-export default connect(mapStateProps)(About)
+export default About

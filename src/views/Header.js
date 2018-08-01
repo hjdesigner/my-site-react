@@ -1,15 +1,14 @@
 'use strict'
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 import IconNav from 'components/icon-nav-mobile'
 import NavMobile from 'components/nav-mobile'
 import NavDesktop from 'components/nav-desktop'
 import NavShare from 'components/nav-share'
 
-const Header = ({ status }) => (
+const Header = () => (
   <div>
-    <HeaderContainer data-js={status.visibilityTheme}>
+    <HeaderContainer>
       <Container>
         <IconNav />
         <NavDesktop />
@@ -45,9 +44,4 @@ const Container = styled.div`
     align-items: center;
   }
 `
-
-const mapStateProps = (state) => ({
-  status: state.theme
-})
-
-export default connect(mapStateProps)(Header)
+export default Header

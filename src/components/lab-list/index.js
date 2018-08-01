@@ -1,13 +1,13 @@
 'use strict'
 import React from 'react'
-import styled from 'styled-components'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
-const LabList = ({ list, status }) => (
+const LabList = ({ list }) => (
   <LabListContainer>
     <Ul>
       {list.map((item) => (
-        <Li key={item.id} data-js={status.visibilityTheme}>
+        <Li key={item.id}>
           <Link href={item.link} target='_blank'>
             <Title>
               {item.title}
@@ -81,8 +81,7 @@ const Image = styled.img`
 `
 
 const mapStateProps = (state) => ({
-  list: state.labList,
-  status: state.theme
+  list: state.labList
 })
 
 export default connect(mapStateProps)(LabList)

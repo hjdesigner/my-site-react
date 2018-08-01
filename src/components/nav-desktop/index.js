@@ -1,13 +1,12 @@
 'use strict'
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 
-const NavDesktop = ({ status }) => (
-  <Nav data-js={status.visibilityTheme}>
+const NavDesktop = () => (
+  <Nav>
     <Ul>
       <Li><NavLink to='/' exact ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
       <Li><NavLink to='/labs'><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
@@ -18,17 +17,6 @@ const NavDesktop = ({ status }) => (
 
 const Nav = styled.nav`
   display: none;
-  &[data-js="false"] {
-    a {
-      color: #2da0c3;
-      &.active {
-        color: #000;
-      }
-      &:hover {
-        color: #000;
-      }
-    }
-  }
   @media screen and (min-width: 768px) {
     display: inline-block;
   }
@@ -75,8 +63,5 @@ const Li = styled.li`
     }
   }
 `
-const mapStateProps = (state) => ({
-  status: state.theme
-})
 
-export default connect(mapStateProps)(NavDesktop)
+export default NavDesktop
