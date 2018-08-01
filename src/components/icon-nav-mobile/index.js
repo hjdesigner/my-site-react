@@ -4,11 +4,16 @@ import { connect } from 'react-redux'
 import { toggleNav } from 'reducers/nav-mobile/action-creators'
 import styled from 'styled-components'
 
-const IconNav = ({ handleClick, status }) => (
-  <IconNavMobile
-    data-js={status.visibilityNav}
-    onClick={handleClick(status)} />
-)
+const IconNav = ({ handleClick, status }) => {
+  const body = document.querySelector('body')
+  body.className = ''
+  body.classList.add(status.visibilityNav)
+  return (
+    <IconNavMobile
+      data-js={status.visibilityNav}
+      onClick={handleClick(status)} />
+  )
+}
 
 const IconNavMobile = styled.div`
   width: 32px;

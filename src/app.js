@@ -37,8 +37,8 @@ injectGlobal`
     background-color: #232222;
     font-family: 'Roboto', sans-serif;
     font-size: 100%;
-    &.false {
-      background-color: #FFF;
+    &.true {
+      overflow: hidden;
     }
   }
 `
