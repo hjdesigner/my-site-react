@@ -1,14 +1,15 @@
 'use strict'
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import IconNav from 'components/icon-nav-mobile'
 import NavMobile from 'components/nav-mobile'
 import NavDesktop from 'components/nav-desktop'
 import NavShare from 'components/nav-share'
 
-const Header = () => (
+const Header = ({ status }) => (
   <div>
-    <HeaderContainer>
+    <HeaderContainer data-js={status.visibilityTheme}>
       <Container>
         <IconNav />
         <NavDesktop />
@@ -24,6 +25,10 @@ const HeaderContainer = styled.header`
   padding: 10px 0;
   border-bottom: 3px solid #4e4d4d;
   position: relative;
+  &[data-js="false"] {
+    border-bottom: 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+  }
   @media screen and (min-width: 768px) {
     padding: 20px 0;
   }
@@ -41,4 +46,8 @@ const Container = styled.div`
   }
 `
 
-export default Header
+const mapStateProps = (state) => ({
+  status: state.theme
+})
+
+export default connect(mapStateProps)(Header)

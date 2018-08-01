@@ -3,11 +3,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-const BlogList = ({ list }) => (
+const BlogList = ({ list, status }) => (
   <BlogListContainer>
     <Ul>
       {list.map((item) => (
-        <Li key={item.id}>
+        <Li key={item.id} data-js={status.visibilityTheme}>
           <Link href={item.link} target='_blank'>
             <Title>
               {item.title}
@@ -41,6 +41,13 @@ const Li = styled.li`
   box-sizing: border-box;
   padding: 10px;
   margin-top: 20px;
+  &[data-js="false"] {
+    background-color: #FFF;
+    border: 1px solid #eee;
+    h2 {
+      color: #000;
+    }
+  }
   @media screen and (min-width: 768px) {
     width: 48%;
     margin-top: 30px;
@@ -80,7 +87,8 @@ const SpanTag = styled.span`
 `
 
 const mapStateProps = (state) => ({
-  list: state.blogList
+  list: state.blogList,
+  status: state.theme
 })
 
 export default connect(mapStateProps)(BlogList)

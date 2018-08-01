@@ -1,16 +1,17 @@
 'use strict'
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import ImageHenrique from './henrique-melanda.png'
 
-const About = () => (
+const About = ({ status }) => (
   <AboutContainer>
     <Image>
       <ImageSrc src={ImageHenrique} />
     </Image>
-    <Title>Henrique Melanda</Title>
-    <Small>Front-End Developer</Small>
-    <Paragraph>Hello, i'm Henrique. Nice to meet you! <br />I am a Brazilian developer passionate about writing code for the web.<br />I always try to be in tune with what is happening in the front-end world and always willing to contribute to Open Source projects.</Paragraph>
+    <Title data-js={status.visibilityTheme}>Henrique Melanda</Title>
+    <Small data-js={status.visibilityTheme}>Front-End Developer</Small>
+    <Paragraph data-js={status.visibilityTheme}>Hello, i'm Henrique. Nice to meet you! <br />I am a Brazilian developer passionate about writing code for the web.<br />I always try to be in tune with what is happening in the front-end world and always willing to contribute to Open Source projects.</Paragraph>
   </AboutContainer>
 )
 
@@ -41,6 +42,9 @@ const Title = styled.h1`
   color: #FFF;
   font-size: 1.2em;
   text-transform: uppercase;
+  &[data-js="false"] {
+   color: #000;
+  }
   @media screen and (min-width: 1000px){
     font-size: 2.5em;
     margin: 20px 0 10px;
@@ -54,6 +58,9 @@ const Small = styled.small`
   font-weight: 900;
   color: #FFF;
   font-size: .8em;
+  &[data-js="false"] {
+   color: #000;
+  }
   @media screen and (min-width: 1000px){
     font-size: 1.3em;
     margin: 0 0 20px;
@@ -67,6 +74,9 @@ const Paragraph = styled.p`
   color: #FFF;
   font-size: .9em;
   line-height: 21px;
+  &[data-js="false"] {
+   color: #000;
+  }
   @media screen and (min-width: 1000px){
     max-width: 1000px;
     font-size: 1.3em;
@@ -74,4 +84,9 @@ const Paragraph = styled.p`
     margin: 0 auto;
   }
 `
-export default About
+
+const mapStateProps = (state) => ({
+  status: state.theme
+})
+
+export default connect(mapStateProps)(About)

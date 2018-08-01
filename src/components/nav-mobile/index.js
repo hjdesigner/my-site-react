@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import { faBookOpen, faFlask, faUserAstronaut } from '@fortawesome/free-solid-svg-icons'
 
-const NavMobile = ({ visibility, handleClick }) => (
-  <NavMobileContainer data-status={visibility.visibilityNav}>
-    <Ul>
+const NavMobile = ({ visibility, handleClick, status }) => (
+  <NavMobileContainer data-status={visibility.visibilityNav} data-js={status.visibilityTheme}>
+    <Ul data-js={status.visibilityTheme}>
       <Li><NavLink to='/' exact onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faUserAstronaut} />About</NavLink></Li>
       <Li><NavLink to='/labs' onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faFlask} />Labs</NavLink></Li>
       <Li><NavLink to='/blog' onClick={handleClick(visibility)} ><FontAwesomeIcon icon={faBookOpen} />Blog</NavLink></Li>
@@ -28,6 +28,7 @@ const NavMobileContainer = styled.nav`
   width: 270px;
   height: calc(100% - 43px);
   position: absolute;
+  z-index: 10;
   top: 43px;
   left: -330px;
   background-color: #1f1f1f;
@@ -35,6 +36,12 @@ const NavMobileContainer = styled.nav`
   &[data-status='true'] {
     transition: all .25s ease-in;
     transform: translateX(330px);
+  }
+  &[data-js="false"] {
+   background-color: #efe9e9;
+   a {
+     color: #000;
+   }
   }
   @media screen and (min-width: 768px) {
     display: none;
@@ -44,7 +51,12 @@ const Ul = styled.ul`
   width: 100%;
   margin: 20px 0 0 0;
   padding: 0;
-  list-style: none;
+  list-style: none;  
+  &[data-js="false"] {
+   li {
+     border-bottom: 2px solid #000;
+   }
+  }
 `
 const UlIcons = styled.ul`
   width: 100%;
@@ -85,7 +97,8 @@ const LiIcon = styled.li`
   }
 `
 const mapStateProps = (state) => ({
-  visibility: state.navMobile
+  visibility: state.navMobile,
+  status: state.theme
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -3,11 +3,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-const LabList = ({ list }) => (
+const LabList = ({ list, status }) => (
   <LabListContainer>
     <Ul>
       {list.map((item) => (
-        <Li key={item.id}>
+        <Li key={item.id} data-js={status.visibilityTheme}>
           <Link href={item.link} target='_blank'>
             <Title>
               {item.title}
@@ -39,6 +39,13 @@ const Li = styled.li`
   box-sizing: border-box;
   padding: 10px;
   margin-top: 20px;
+  &[data-js="false"] {
+    background-color: #FFF;
+    border: 1px solid #eee;
+    h2 {
+      color: #000;
+    }
+  }
   @media screen and (min-width: 768px) {
     width: 48%;
     margin-top: 30px;
@@ -74,7 +81,8 @@ const Image = styled.img`
 `
 
 const mapStateProps = (state) => ({
-  list: state.labList
+  list: state.labList,
+  status: state.theme
 })
 
 export default connect(mapStateProps)(LabList)

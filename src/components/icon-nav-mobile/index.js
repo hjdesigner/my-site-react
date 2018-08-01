@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import { toggleNav } from 'reducers/nav-mobile/action-creators'
 import styled from 'styled-components'
 
-const IconNav = ({ handleClick, status }) => (
+const IconNav = ({ handleClick, status, visibility }) => (
   <IconNavMobile
+    data-visi={visibility.visibilityTheme}
     data-js={status.visibilityNav}
     onClick={handleClick(status)} />
 )
@@ -31,6 +32,15 @@ const IconNavMobile = styled.div`
   &:after {
     top: 16px;
   }
+  &[data-visi="false"] {
+    &:before,
+    &:after {
+      background-color: #000000;
+    }
+    &:before {
+    box-shadow: 0 8px 0 #000000;
+  }
+  }
   &[data-js="true"] {
     &:before {
       top: 8px;
@@ -48,7 +58,8 @@ const IconNavMobile = styled.div`
 `
 
 const mapStatePros = (state) => ({
-  status: state.navMobile
+  status: state.navMobile,
+  visibility: state.theme
 })
 
 const mapDispatchToProps = (dispatch) => ({
