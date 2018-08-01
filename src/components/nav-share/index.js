@@ -1,17 +1,16 @@
 'use strict'
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitterSquare, faCodepen } from '@fortawesome/free-brands-svg-icons'
 
 const NavShare = () => (
   <Shares>
     <UlIcons>
-      <LiIcon><a href='https://www.github.com/hjdesigner' target="_blank"><FontAwesomeIcon icon={faGithub} /></a></LiIcon>
-      <LiIcon><a href='https://www.twitter.com/coisadedev' target="_blank"><FontAwesomeIcon icon={faTwitterSquare} /></a></LiIcon>
-      <LiIcon><a href='https://br.linkedin.com/in/coisadedev' target="_blank"><FontAwesomeIcon icon={faLinkedin} /></a></LiIcon>
-      <LiIcon><a href='https://codepen.io/hjdesigner/' target="_blank"><FontAwesomeIcon icon={faCodepen} /></a></LiIcon>
+      <LiIcon><a href='https://www.github.com/hjdesigner' target='_blank'><FontAwesomeIcon icon={faGithub} /></a></LiIcon>
+      <LiIcon><a href='https://www.twitter.com/coisadedev' target='_blank'><FontAwesomeIcon icon={faTwitterSquare} /></a></LiIcon>
+      <LiIcon><a href='https://br.linkedin.com/in/coisadedev' target='_blank'><FontAwesomeIcon icon={faLinkedin} /></a></LiIcon>
+      <LiIcon><a href='https://codepen.io/hjdesigner/' target='_blank'><FontAwesomeIcon icon={faCodepen} /></a></LiIcon>
     </UlIcons>
   </Shares>
 )
