@@ -8,17 +8,19 @@ import Footer from 'views/footer'
 import Home from 'views/home'
 import Blog from 'views/Blog'
 import Lab from 'views/Lab'
+import PageNot from 'views/404'
 
 class App extends PureComponent {
   render () {
     return (
-      <Router>
+      <Router path={process.env.PUBLIC_URL + '/'}>
         <div>
           <Header />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/blog' component={Blog} />
             <Route path='/labs' component={Lab} />
+            <Route component={PageNot} />
           </Switch>
           <Footer />
         </div>

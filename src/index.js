@@ -1,6 +1,7 @@
 'use strict'
 
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
@@ -11,11 +12,13 @@ const store = configureStore()
 
 const renderApp = (NextApp) => {
   render(
-    <AppContainer>
-      <Provider store={store}>
-        <NextApp />
-      </Provider>
-    </AppContainer>,
+    <BrowserRouter>
+      <AppContainer>
+        <Provider store={store}>
+          <NextApp />
+        </Provider>
+      </AppContainer>
+    </BrowserRouter>,
     document.querySelector('[data-js="app"]')
   )
 }

@@ -2,6 +2,7 @@
   "scripts": {
     "start": "yarn dev",
     "dev": "webpack-dashboard -- node server.js",
+    "now-start": "serve --single ./dist",
     "test": "jest --coverage",
     "test:watch": "yarn test -- --watch",
     "lint": "standard --parser babel-eslint --verbose | snazzy",
@@ -25,6 +26,10 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/free-brands-svg-icons": "^5.2.0",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "@fortawesome/react-fontawesome": "^0.1.0",
     "@storybook/react": "^3.2.8",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
@@ -56,10 +61,6 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.2",
-    "@fortawesome/free-brands-svg-icons": "^5.2.0",
-    "@fortawesome/free-solid-svg-icons": "^5.2.0",
-    "@fortawesome/react-fontawesome": "^0.1.0",
     "axios": "^0.18.0",
     "babel-runtime": "^6.26.0",
     "preact": "^8.2.5",
@@ -71,6 +72,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
+    "serve": "^9.4.0",
     "styled-components": "^3.3.3"
   }
 }
